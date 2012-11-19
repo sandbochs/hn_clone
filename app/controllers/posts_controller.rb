@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+	before_filter :authenticate_user!, except: [:index]
+	load_and_authorize_resource
+	skip_authorize_resource only: :index
+
 	def index
 		@posts = Post.scoped.page(params[:page]).per(20)
 	end
@@ -21,7 +25,6 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
-		authorize! :edit, @post
 	end
 
 	def update
