@@ -19,4 +19,14 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+		authorize! :edit, @post
+	end
+
+	def update
+		@post = Post.find(params[:id])
+
+	end
+
 end

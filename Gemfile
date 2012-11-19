@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'cancan'
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'

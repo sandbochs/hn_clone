@@ -1,7 +1,10 @@
 <% @posts.each do |post| %>
 
-<p><%= link_to post.title, post.article_url %></p>
-
+<p><%= link_to post.title, post.article_url %>
+	<% if can? :edit, post %>
+	 | <%= link_to '(edit)', edit_post_path(post) %>
+	<% end %>
+</p>
 <% end %>
 
 <p><%= paginate @posts %></p>
