@@ -1,6 +1,12 @@
 <% @posts.each do |post| %>
 
-<p><%= link_to post.title, post.article_url %> | <%= link_to '(comments)', post_comments_path(post) %>
+<p><<%= post.score%>>
+	<% if current_user %>
+		<%= link_to '(vote)', post_votes_path(post), method: :post %>
+	<% end %> 
+
+	<%= link_to post.title, post.article_url %> | <%= link_to '(comments)', post_comments_path(post) %>
+
 	<% if can? :edit, post %>
 	 | <%= link_to '(edit)', edit_post_path(post) %>
 	<% end %>
