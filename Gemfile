@@ -21,11 +21,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'kaminari'
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
 	gem 'capybara'
 	gem 'thin'
+	gem 'faker'
 end
 
 # To use ActiveModel has_secure_password

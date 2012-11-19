@@ -12,3 +12,8 @@ Post.create(title: 'Google', article_url: 'http://google.com', user_id: 1)
 Post.create(title: 'Yahoo', article_url: 'http://yahoo.com', user_id: 1)
 Post.create(title: 'Hacker News', article_url: 'http://news.ycombinator.com', user_id: 2)
 Post.create(title: 'Reddit', article_url: 'http://reddit.com', user_id: 2)
+
+50.times do
+	Post.create(title: Faker::Lorem.sentence(word_count = 3, supplemental = false), article_url: Faker::Internet.url, user_id: 1)
+	Post.create(title: Faker::Lorem.sentence(word_count = 3, supplemental = false), article_url: Faker::Internet.url, user_id: 2)
+end

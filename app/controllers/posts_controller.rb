@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 	def index
-		@posts = Post.all
+		@posts = Post.scoped.page(params[:page]).per(20)
 	end
 
 	def new
@@ -9,10 +9,13 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		post = Post.new(params[:post])
+		@post = Post.new(params[:post])
 
-		post.save
-		redirect_to posts_path
+		if @post.save
+			redirect_to posts_path
+		else
+			render 'new'
+		end
 	end
 
 end
