@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 	skip_authorize_resource only: :index
 
 	def index
-		@posts = Post.scoped.page(params[:page]).per(20)
+		posts = Post.all.sort { |a, b| b.score <=> a.score }
+		@posts = Kaminari.paginate_array(posts).page(params[:page]).per(20)
 	end
 
 	def new
@@ -29,7 +30,6 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-
 	end
 
 end

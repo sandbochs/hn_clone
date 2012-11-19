@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
 
-<p><<%= post.score%>>
+<p>
 	<% if current_user %>
 		<%= link_to '(vote)', post_votes_path(post), method: :post %>
 	<% end %> 

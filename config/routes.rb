@@ -1,6 +1,7 @@
 HnClone::Application.routes.draw do
 
 	get 'log_out' => 'sessions#destroy', as: 'log_out'
+  get 'newest' => 'newest#index'
 	resources :sessions, only: [:index, :create, :destroy]
 
   resources :posts do

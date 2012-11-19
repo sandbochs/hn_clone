@@ -8,8 +8,10 @@ class Post < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	has_many :votes, dependent: :destroy
 
+  scope :newest, order("created_at desc")
+
 	def score
-		self.votes.count
+		self.votes.count / (((Time.now - self.created_at) + 2) ** 1.8)
 	end
 
 end

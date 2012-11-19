@@ -28,11 +28,13 @@ ActiveRecord::Schema.define(:version => 20121119011000) do
     t.string   "title"
     t.string   "article_url"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "vote_count",  :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+  add_index "posts", ["vote_count"], :name => "index_posts_on_vote_count"
 
   create_table "users", :force => true do |t|
     t.string   "username"
