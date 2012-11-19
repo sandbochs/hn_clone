@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
 
-<p><%= link_to post.title, post.article_url %>
+<p><%= link_to post.title, post.article_url %> | <%= link_to '(comments)', post_comments_path(post) %>
 	<% if can? :edit, post %>
 	 | <%= link_to '(edit)', edit_post_path(post) %>
 	<% end %>

@@ -1,0 +1,9 @@
+<% if current_user %>
+	<%= render 'form' %><br>
+<% end %>
+<% @comments.each do |comment| %>
+<br><%= comment.text %> : <%= comment.user.username %>
+<% if current_user && can?(:edit, comment) %>
+	<%= link_to '(edit)', edit_post_comment_path(@post, comment) %>
+<% end %>
+<% end %>

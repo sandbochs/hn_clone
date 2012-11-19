@@ -14,6 +14,11 @@ Post.create(title: 'Hacker News', article_url: 'http://news.ycombinator.com', us
 Post.create(title: 'Reddit', article_url: 'http://reddit.com', user_id: 2)
 
 50.times do
-	Post.create(title: Faker::Lorem.sentence(word_count = 3, supplemental = false), article_url: Faker::Internet.url, user_id: 1)
-	Post.create(title: Faker::Lorem.sentence(word_count = 3, supplemental = false), article_url: Faker::Internet.url, user_id: 2)
+	Post.create(title: Faker::Lorem.sentence, article_url: Faker::Internet.url, user_id: 1)
+	Post.create(title: Faker::Lorem.sentence, article_url: Faker::Internet.url, user_id: 2)
+end
+
+50.times do |index|
+	Comment.create(user_id: 1, post_id: index, text: Faker::Lorem.sentences)
+	Comment.create(user_id: 2, post_id: index, text: Faker::Lorem.sentences)
 end
