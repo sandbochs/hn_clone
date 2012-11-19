@@ -1,7 +1,7 @@
-<% if @post.errors.any? %>
-	<% @post.errors.full_messages.each do |msg| %>
-		<%= msg %>
-	<% end %>
-<% end %>
 
+<% if @post.errors.any? %>
+  <% for message in @post.errors.full_messages %>
+  	<br><%= message %>
+  <% end %>
+<% end %>
 <%= render 'new' %>

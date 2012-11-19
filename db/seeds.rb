@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: 'elliot')
-User.create(username: 'amy')
+User.create(username: 'elliot', password_digest: "$2a$10$ZhEVME8BZzflbwqwgLqTRuVZIdi6eTPFWb61gSMvnB6pHni4RnJOi")
+User.create(username: 'amy', password_digest: "$2a$10$ZhEVME8BZzflbwqwgLqTRuVZIdi6eTPFWb61gSMvnB6pHni4RnJOi")
 Post.create(title: 'Google', article_url: 'http://google.com', user_id: 1)
 Post.create(title: 'Yahoo', article_url: 'http://yahoo.com', user_id: 1)
 Post.create(title: 'Hacker News', article_url: 'http://news.ycombinator.com', user_id: 2)
