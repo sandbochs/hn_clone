@@ -27,17 +27,23 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-		@post = Post.find(params[:post_id])
 		@comment = Comment.find(params[:id])
+		@post = Post.find(params[:post_id])
+		
+		if !@comment.editable?
+			redirect_to post_comments_path(@post)
+		end
+		
 	end
 
 	def update
 		@post = Post.find(params[:post_id])
 		@comment = Comment.find(params[:id])
 
-		if @comment.update_attributes(params[:comment])
-			redirect_to post_comments_path(@post)
-		end					
+		if @comment.editable?
+			@comment.update_attributes(params[:comment])
+		end
+		redirect_to post_comments_path(@post)
 	end
 
 end
