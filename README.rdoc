@@ -1,1 +1,3 @@
-== Hacker News Clone, 1995
+# Hacker News Clone, 1995
+
+Just an clone of Hacker News that I did with Amy to get more experience with writing a full blown rails app!
